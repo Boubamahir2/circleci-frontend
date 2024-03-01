@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY package.json ./
 RUN npm update recharts
+RUN npm install recharts --legacy-peer-deps
 
 # RUN npm install --force
 RUN npm cache clean --force
