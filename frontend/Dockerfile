@@ -3,15 +3,10 @@ FROM node
 WORKDIR /app
 
 COPY package.json ./
-RUN npm update recharts
-RUN npm install recharts --legacy-peer-deps
 
-# RUN npm install --force
-RUN npm cache clean --force
-RUN npm config set legacy-peer-deps true
-RUN npm install --legacy-peer-deps
-# RUN npm install --save --legacy-peer-deps
-
+RUN npm cache clean --force && \
+    npm config set legacy-peer-deps true && \
+    npm install --legacy-peer-deps
 
 COPY . .
 
