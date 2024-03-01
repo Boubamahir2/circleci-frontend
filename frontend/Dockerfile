@@ -3,6 +3,7 @@ FROM node
 WORKDIR /app
 
 COPY package.json ./
+RUN npm update recharts
 
 # RUN npm install --force
 RUN npm cache clean --force
