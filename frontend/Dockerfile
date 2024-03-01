@@ -4,7 +4,12 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install --force
+# RUN npm install --force
+RUN npm cache clean --force
+RUN npm config set legacy-peer-deps true
+RUN npm install --save --legacy-peer-deps
+# RUN npm install --save --legacy-peer-deps
+
 
 COPY . .
 
